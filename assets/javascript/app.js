@@ -1,9 +1,8 @@
 $('#start').on('click', function() {
-  $('#subWrapper').remove();
+  game.start();
 });
 
 var questions = ([{
-
   question: 'The first person shooter video game "Doom", was first released in what year?',
   answers: ["1983", "1999", "1984", "1993", "2016"],
   correctAnswer: "1993",
@@ -28,3 +27,29 @@ var questions = ([{
   answers: ["Male", "Female", "NonBinary"],
   correctAnswer: "Female",
 }]);
+
+var game = {
+  correct: 0,
+  incorrect: 0,
+  unanswered: 0,
+  counter: 60,
+  countdown: function() {
+    game.counter--;
+    $('#counter').html(game.counter);
+    if (game.counter <= 0) {
+      console.log("Time is Up!");
+      game.done();
+    }
+  },
+  start: function() {
+    timer = setInterval(game.countdown, 1000);
+    $('#subWrapper').prepend('<h2> Time Remaining: <span id= "counter"> 60 </span> Seconds </h2>')
+    $('#start').remove();
+    for (var i = 0; i < questions.length; i++) {
+      $('#subWrapper').append('<h2>' + questions[i].question + '</h2>');
+      for (var j = 0; j < questions[i].answers.length; j++) {
+        $('#subWrapper').append("<input type = 'radio' name = 'question-" + i + "' value = '" + questions[i].answers[j] + "'>" + questions[i].answers[j]);
+      }
+    }
+  }
+}
