@@ -46,7 +46,7 @@ var game = {
     }
   },
   start: function() {
-    // timer = setInterval(game.countdown, 1000);
+    timer = setInterval(game.countdown, 1000);
     $('#subWrapper').prepend('<h2> Time Remaining: <span id= "counter"> 60 </span> Seconds </h2>')
     $('#start').remove();
     for (var i = 0; i < questions.length; i++) {
