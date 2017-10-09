@@ -9,5 +9,20 @@ body {
 }
 
 #title {
+  width: auto;
+  text-align: center;
+}
 
+#wrapper {
+  text-align: center;
+  width: auto;
+}
+
+button {
+  font-size: 33px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #2c2c2c;
+  border: none;
+  text-align: center;
+  color: white;
 }
